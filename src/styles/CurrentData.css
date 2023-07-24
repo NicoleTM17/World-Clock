@@ -1,0 +1,19 @@
+
+.current-data{
+  text-align: center;
+  margin-top: -80px;
+}
+
+.current-time{
+  font-size: 4em;
+}
+
+.current-location{
+  font-size: 3em;
+  margin-top: -30px;
+}
+
+.current-date{
+  font-size: 1.5em;
+  margin-top: -20px;
+}

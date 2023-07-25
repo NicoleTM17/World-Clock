@@ -9,6 +9,44 @@ import '../styles/CurrentData.css';
 
 function CurrentData() {
 
+  const today = new Date();
+  const currentDay = today.getDay();
+
+  let day;
+
+  switch (currentDay) {
+    case 0:
+      day = 'Sun';
+      break;
+    case 1:
+      day = 'Mon';
+      break;
+    case 2:
+      day = 'Tues';
+      break;
+    case 3:
+      day = 'Weds';
+      break;
+    case 4:
+      day = 'Thurs';
+      break;
+    case 5:
+      day = 'Fri';
+      break;
+    case 6:
+      day = 'Sat';
+      break;
+    case 7:
+      day = 'Sun';
+      break;
+    default:
+      day = '';
+  };
+
+
+
+  // Fetch current date, time, and location
+
   const [time, setTime] = useState('');
   const [location, setLocation] = useState('');
   const [date, setDate] = useState('');
@@ -52,7 +90,7 @@ function CurrentData() {
     <div className="current-data">
       <h1 className="current-time">{time}</h1>
       <h1 className="current-location">{location}</h1>
-      <h2 className="current-date">{date}</h2>
+      <h2 className="current-date">{day} {date}</h2>
     </div>
   );
 };

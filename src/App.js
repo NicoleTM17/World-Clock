@@ -1,5 +1,3 @@
-// import logo from './logo.svg';
-
 
 // CSS:
 import './App.css';
@@ -28,8 +26,12 @@ WebFont.load({
 });
 
 
+// Fetch current date and time of current location (e.g. London, Los Angeles, Tokyo)
+// Fetch time difference of other countries based on current location (e.g. how much behind is Los Angeles from London)
+
 
 function App() {
+
   return (
     <div className='container'>
       <h1 className='title'>World clock</h1>

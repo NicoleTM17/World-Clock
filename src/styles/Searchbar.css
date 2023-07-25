@@ -1,0 +1,59 @@
+
+.search{
+  /* display: block;
+  margin: 0 auto; */
+  margin-top: -25px;
+  margin-bottom: 10px;
+  width: 59%;
+  padding: 10px 10px;
+  border-radius: 1em;
+  border: 1px solid black;
+  font-family: 'Space Grotesk';
+  background-color: white;
+}
+
+.search-bar{
+  position: absolute;
+  left: 8em;
+  top: 6em;
+}
+
+.submit-btn{
+  padding: 10px 10px;
+  border-radius: 1em;
+  border: 5px solid black;
+  font-family: 'Space Grotesk';
+  font-weight: 100;
+  background-color: white;
+  transition: 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.submit-btn:hover{
+  background-color: #267C8F;
+  color: white;
+}
+
+.results{
+  color: white;
+  position: absolute;
+  top: 9.2em;
+  left: 13em;
+  font-size: 0.9em;
+  opacity: 0.8;
+  display: none;
+}
+
+@media (max-width: 540px) {
+
+  .search-bar{
+    left: 5em;
+  }
+
+  .results{
+    font-size: 12px;
+    top: 5.5em;
+    left: 14em;
+    display: none;
+  }
+}

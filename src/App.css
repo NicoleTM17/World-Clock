@@ -1,22 +1,30 @@
 
 body{
-  background-color: beige;
+  /* background-color: beige; */
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1610534440162-e0e68fbdeca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80);
+  /* background-size: contain; */
 }
 
 .container{
   display: block;
   margin: 0 auto;
-  border: 3px solid red;
-  border-radius: 1em;
-  background-color: white;
   max-width: 30em;
+  position: relative;
+  border: 3px solid white;
+  border-radius: 1em;
+  background-color: rgba(0, 0, 0, 0.837);
   margin-top: 2em;
   margin-bottom: 2em;
+  overflow: hidden;
 }
 
 .title{
   text-align: center;
-  font-size: 4em;
+  font-size: 3.5em;
+  margin-top: 10px;
+  color: white;
+  font-family: 'Space Grotesk';
+  font-weight: 700;
 }
 
 footer{
@@ -24,4 +32,9 @@ footer{
   opacity: 0.7;
   font-size: 0.7em;
   margin-bottom: 1em;
+  color: white;
+  font-family: 'Space Grotesk';
 }
+
+
+/* #267C8F */

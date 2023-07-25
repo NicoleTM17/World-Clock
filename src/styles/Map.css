@@ -2,6 +2,14 @@
 .map-img{
   display: block;
   margin: 0 auto;
+  position: absolute;
+  top: 9em;
   max-width: 30em;
-  margin-top: -20px;
+}
+
+@media (max-width: 540px) {
+  .map-img{
+    max-width: 25em;
+    top: 8em;
+}
 }

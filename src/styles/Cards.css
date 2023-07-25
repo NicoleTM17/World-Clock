@@ -4,9 +4,15 @@
   flex-direction: row;
   justify-content: center;
   padding: 39px 20px;
-  border: 1px solid green;
+  border: 1px solid white;
   border-radius: 2em;
   margin: 20px;
+  color: white;
+  font-family: 'Space Grotesk';
+}
+
+.cards-wrapper{
+  margin-top: -4em;
 }
 
 .col-wrap{
@@ -22,6 +28,7 @@
   /* display: inline; */
   right: 15px;
   top: 10px;
+  font-weight: 700;
 }
 
 .location{
@@ -32,4 +39,5 @@
 .time-diff{
   font-size: 0.75em;
   opacity: 0.8;
+  font-weight: 100;
 }

@@ -11,13 +11,6 @@ function Cards() {
   // https://worldtimeapi.org/api/timezone/Asia/Tokyo
   // .replace('_', '')
 
-  // const [location, setLocation] = useState('');
-  // const [time, setTime] = useState('');
-  // const [timeDifference, setTimeDifference] = useState('');
-
-
-
-
   const fetchCityData = async (timezone) => {
     try {
       const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);

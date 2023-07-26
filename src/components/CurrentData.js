@@ -74,7 +74,7 @@ function CurrentData() {
 
       })
       .catch(error => {
-        console.error('A problem occured whilst trying to fetch from worldtimeapi', error);
+        console.error('A problem occured whilst trying to fetch from worldtimeapi:', error);
       });
     }, 1000);
 

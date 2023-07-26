@@ -29,6 +29,7 @@
   cursor: pointer;
   background-color: #267C8F;
   color: white;
+  margin-left: 0.6em;
 }
 
 .submit-btn:hover{

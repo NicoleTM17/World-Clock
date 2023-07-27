@@ -3,48 +3,78 @@ import { useState } from 'react';
 // CSS:
 import '../styles/Searchbar.css';
 
-function Searchbar({cityValue}) {
 
-  // When a user enters a city e.g. Berlin and clicks the search button, the api should fetch
-  // the city, time difference and time, and store it all in a clock-card. The format should be the same as
-  // the default cities.
-  // Preferably, each fetched data would appear in a clock-card at the bottom of the clock-cards.
-  // Optional: Eventually I would also like to include the ability to delete clock-cards.
+function Searchbar({ addClockCard }) {
+  const [city, setCity] = useState('');
+  const [searchError, setSearchError] = useState(false);
 
-  const [city, setCity] = useState(''); // state variable for city with empty string
-
-  function handleClick(event) {
+  async function handleClick(event) {
     event.preventDefault();
-    // console.log('clicked!');
-    cityValue(city); // cityValue is our prop passing the value of city e.g. Berlin
+    setSearchError(false);
 
-    setCity(''); // resets city to empty string so new city can be entered
+    try {
+      const response = await fetch(`https://worldtimeapi.org/api/timezone/${city}`);
+      const data = await response.json();
+
+      if (data.timezone) {
+        const newClockCard = {
+          city: data.timezone.split('/').pop().replace('_', ' '),
+          time: formatTime(data.datetime, data.utc_offset, data.timezone),
+          timeDifference: data.utc_offset,
+        };
+        addClockCard(newClockCard);
+        setCity('');
+      } else {
+        setCity('');
+        setSearchError(true);
+      }
+    } catch (error) {
+      console.error('Error fetching city data:', error);
+      setSearchError(true);
+    }
   }
 
   function handleChange(event) {
-    setCity(event.target.value); // city empty string updated with value typed in
+    const inputValue = event.target.value;
+    const capitalizedCity = inputValue.charAt(0).toUpperCase() + inputValue.slice(1).toLowerCase(); // regardless, city is always written like this 'Berlin'
+    setCity(capitalizedCity);
   }
 
+  const formatTime = (datetime, utc_offset, timezone) => {
+    const date = new Date(datetime);
 
-  return(
+    // Check if the utc_offset is valid and not undefined
+    if (!utc_offset || typeof utc_offset !== 'string') {
+      return 'Invalid UTC offset';
+    }
+
+    // Parse the datetime and apply the utc_offset to get the correct local time
+    const localTime = new Date(date.getTime() - parseInt(utc_offset) * 1000);
+
+    // Get the formatted time based on the timezone without AM/PM
+    const timeOptions = { hour: '2-digit', minute: '2-digit', timeZone: timezone, hour12: false };
+    const formattedTime = new Intl.DateTimeFormat('en-US', timeOptions).format(localTime);
+
+    return formattedTime;
+  };
+
+  return (
     <div className='searchbar'>
-
       <form className='search-bar'>
-        <input onChange={handleChange}
+        <input
+          onChange={handleChange}
           className='search'
           type='text'
           placeholder='Enter a city...'
+          value={city} // Bind the input value to the city state
         />
-        <button onClick={handleClick}
-        className='submit-btn'
-        type='submit'
-        >Search
+        <button onClick={handleClick} className='submit-btn' type='submit'>
+          Search
         </button>
       </form>
-      <p className='results results-hidden'>No results.</p>
+      {searchError && <p className='results'>No results.</p>}
     </div>
   );
 }
-
 
 export default Searchbar;

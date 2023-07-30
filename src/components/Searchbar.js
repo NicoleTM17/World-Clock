@@ -249,7 +249,7 @@ function Searchbar({ addNewClockCard }) {
       if (timezone) {
         const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);
         const data = await response.json();
-        console.log('Fetched data:', data);
+        // console.log('Fetched data:', data);
 
         const newCardData = {
           city: timezone.split('/').pop().replace('_', ' '),
@@ -260,7 +260,7 @@ function Searchbar({ addNewClockCard }) {
         addNewClockCard(newCardData);
         alert(`${city} added!`);
         setCity('');
-        console.log(`https://worldtimeapi.org/api/timezone/${timezone}`);
+        // console.log(`https://worldtimeapi.org/api/timezone/${timezone}`);
 
       } else {
         setSearchError(true);

@@ -10,7 +10,6 @@ function Searchbar({ addNewClockCard }) {
 
     // Mapping of city names to timezone strings
     // Need to adjust capitalizaton so that second word is also capitalised
-    // Need to implement 'delete' functionality
     const cityToTimezoneMap = {
       Berlin: 'Europe/Berlin',
       Abidjan: 'Africa/Abidjan',
@@ -19,7 +18,7 @@ function Searchbar({ addNewClockCard }) {
       Cairo: 'Africa/Cairo',
       Casablanca: 'Africa/Casablanca',
       Ceuta: 'Africa/Ceuta',
-      El_Aaiun: 'Africa/El_Aaiun',
+      ElAaiun: 'Africa/El_Aaiun',
       Johannesburg: 'Africa/Johannesburg',
       Juba: 'Africa/Juba',
       Khartoum: 'Africa/Khartoum',
@@ -28,57 +27,57 @@ function Searchbar({ addNewClockCard }) {
       Monrovia: 'Africa/Monrovia',
       Nairobi: 'Africa/Nairobi',
       Ndjamena: 'Africa/Ndjamena',
-      Sao_Tome: 'Africa/Sao_Tome',
+      SaoTome: 'Africa/Sao_Tome',
       Tripoli: 'Africa/Tripoli',
       Tunis: 'Africa/Tunis',
       Windhoek: 'Africa/Windhoek',
       Adak: 'America/Adak',
       Anchorage: 'America/Anchorage',
       Araguaina: 'America/Araguaina',
-      Buenos_Aires: 'America/Argentina/Buenos_Aires',
+      BuenosAires: 'America/Argentina/Buenos_Aires',
       Catamarca: 'America/Argentina/Catamarca',
       Cordoba: 'America/Argentina/Cordoba',
       Jujuy: 'America/Argentina/Jujuy',
-      La_Rioja: 'America/Argentina/La_Rioja',
+      LaRioja: 'America/Argentina/La_Rioja',
       Mendoza: 'America/Argentina/Mendoza',
-      Rio_Gallegos: 'America/Argentina/Rio_Gallegos',
+      RioGallegos: 'America/Argentina/Rio_Gallegos',
       Salta: 'America/Argentina/Salta',
-      San_Juan: 'America/Argentina/San_Juan',
-      San_Luis: 'America/Argentina/San_Luis',
+      SanJuan: 'America/Argentina/San_Juan',
+      SanLuis: 'America/Argentina/San_Luis',
       Tucuman: 'America/Argentina/Tucuman',
       Ushuaia: 'America/Argentina/Ushuaia',
       Asuncion: 'America/Asuncion',
       Bahia: 'America/Bahia',
-      Bahia_Banderas: 'America/Bahia_Banderas',
+      BahiaBanderas: 'America/Bahia_Banderas',
       Barbados: 'America/Barbados',
       Belem: 'America/Belem',
       Belize: 'America/Belize',
-      Boa_Vista: 'America/Boa_Vista',
+      BoaVista: 'America/Boa_Vista',
       Bogota: 'America/Bogota',
       Boise: 'America/Boise',
-      Cambridge_Bay: 'America/Cambridge_Bay',
-      Campo_Grande: 'America/Campo_Grande',
+      CambridgeBay: 'America/Cambridge_Bay',
+      CampoGrande: 'America/Campo_Grande',
       Cancun: 'America/Cancun',
       Caracas: 'America/Caracas',
       Cayenne: 'America/Cayenne',
       Chicago: 'America/Chicago',
       Chihuahua: 'America/Chihuahua',
-      Ciudad_Juarez: 'America/Ciudad_Juarez',
-      Costa_Rica: 'America/Costa_Rica',
+      CiudadJuarez: 'America/Ciudad_Juarez',
+      CostaRica: 'America/Costa_Rica',
       Cuiaba: 'America/Cuiaba',
       Danmarkshavn: 'America/Danmarkshavn',
       Dawson: 'America/Dawson',
-      Dawson_Creek: 'America/Dawson_Creek',
+      DawsonCreek: 'America/Dawson_Creek',
       Denver: 'America/Denver',
       Detroit: 'America/Detroit',
       Edmonton: 'America/Edmonton',
       Eirunepe: 'America/Eirunepe',
-      El_Salvador: 'America/El_Salvador',
-      Fort_Nelson: 'America/Fort_Nelson',
+      ElSalvador: 'America/El_Salvador',
+      FortNelson: 'America/Fort_Nelson',
       Fortaleza: 'America/Fortaleza',
-      Glace_Bay: 'America/Glace_Bay',
-      Goose_Bay: 'America/Goose_Bay',
-      Grand_Turk: 'America/Grand_Turk',
+      GlaceBay: 'America/Glace_Bay',
+      GooseBay: 'America/Goose_Bay',
+      GrandTurk: 'America/Grand_Turk',
       Guatemala: 'America/Guatemala',
       Guayaquil: 'America/Guayaquil',
       Guyana: 'America/Guyana',
@@ -89,7 +88,7 @@ function Searchbar({ addNewClockCard }) {
       Knox: 'America/Indiana/Knox',
       Marengo: 'America/Indiana/Marengo',
       Petersburg: 'America/Indiana/Petersburg',
-      Tell_City: 'America/Indiana/Tell_City',
+      TellCity: 'America/Indiana/Tell_City',
       Vevay: 'America/Indiana/Vevay',
       Vincennes: 'America/Indiana/Vincennes',
       Winamac: 'America/Indiana/Winamac',
@@ -99,9 +98,9 @@ function Searchbar({ addNewClockCard }) {
       Juneau: 'America/Juneau',
       Louisville: 'America/Kentucky/Louisville',
       Monticello: 'America/Kentucky/Monticello',
-      La_Paz: 'America/La_Paz',
+      LaPaz: 'America/La_Paz',
       Lima: 'America/Lima',
-      Los_Angeles: 'America/Los_Angeles',
+      LosAngeles: 'America/Los_Angeles',
       Maceio: 'America/Maceio',
       Managua: 'America/Managua',
       Manaus: 'America/Manaus',
@@ -111,39 +110,40 @@ function Searchbar({ addNewClockCard }) {
       Menominee: 'America/Menominee',
       Merida: 'America/Merida',
       Metlakatla: 'America/Metlakatla',
-      Mexico_City: 'America/Mexico_City',
+      MexicoCity: 'America/Mexico_City',
       Miquelon: 'America/Miquelon',
       Moncton: 'America/Moncton',
       Monterrey: 'America/Monterrey',
       Montevideo: 'America/Montevideo',
-      New_York: 'America/New_York',
+      NewYork: 'America/New_York',
       Nome: 'America/Nome',
       Noronha: 'America/Noronha',
       Beulah: 'America/North_Dakota/Beulah',
       Center: 'America/North_Dakota/Center',
-      New_Salem: 'America/North_Dakota/New_Salem',
+      NewSalem: 'America/North_Dakota/New_Salem',
       Nuuk: 'America/Nuuk',
       Ojinaga: 'America/Ojinaga',
       Panama: 'America/Panama',
       Paramaribo: 'America/Paramaribo',
       Phoenix: 'America/Phoenix',
-      Port_au_Prince: 'America/Port-au-Prince',
-      Porto_Velho: 'America/Porto_Velho',
-      Puerto_Rico: 'America/Puerto_Rico',
-      Punta_Arenas: 'America/Punta_Arenas',
-      Rankin_Inlet: 'America/Rankin_Inlet',
+      // eslint-disable-next-line no-useless-computed-key
+      ["Port-au-Prince"]: 'America/Port-au-Prince',
+      PortoVelho: 'America/Porto_Velho',
+      PuertoRico: 'America/Puerto_Rico',
+      PuntaArenas: 'America/Punta_Arenas',
+      RankinInlet: 'America/Rankin_Inlet',
       Recife: 'America/Recife',
       Regina: 'America/Regina',
       Resolute: 'America/Resolute',
-      Rio_Branco: 'America/Rio_Branco',
+      RioBranco: 'America/Rio_Branco',
       Santarem: 'America/Santarem',
       Santiago: 'America/Santiago',
-      Santo_Domingo: 'America/Santo_Domingo',
-      Sao_Paulo: 'America/Sao_Paulo',
+      SantoDomingo: 'America/Santo_Domingo',
+      SaoPaulo: 'America/Sao_Paulo',
       Scoresbysund: 'America/Scoresbysund',
       Sitka: 'America/Sitka',
-      St_Johns: 'America/St_Johns',
-      Swift_Current: 'America/Swift_Current',
+      StJohns: 'America/St_Johns',
+      SwiftCurrent: 'America/Swift_Current',
       Tegucigalpa: 'America/Tegucigalpa',
       Thule: 'America/Thule',
       Tijuana: 'America/Tijuana',
@@ -184,15 +184,15 @@ function Searchbar({ addNewClockCard }) {
       Azores: 'Atlantic/Azores',
       Bermuda: 'Atlantic/Bermuda',
       Canary: 'Atlantic/Canary',
-      Cape_Verde: 'Atlantic/Cape_Verde',
+      CapeVerde: 'Atlantic/Cape_Verde',
       Adelaide: 'Australia/Adelaide',
       Brisbane: 'Australia/Brisbane',
-      Broken_Hill: 'Australia/Broken_Hill',
+      BrokenHill: 'Australia/Broken_Hill',
       Darwin: 'Australia/Darwin',
       Eucla: 'Australia/Eucla',
       Hobart: 'Australia/Hobart',
       Lindeman: 'Australia/Lindeman',
-      Lord_Howe: 'Australia/Lord_Howe',
+      LordHowe: 'Australia/Lord_Howe',
       Melbourne: 'Australia/Melbourne',
       Perth: 'Australia/Perth',
       Sydney: 'Australia/Sydney',
@@ -258,12 +258,13 @@ function Searchbar({ addNewClockCard }) {
         };
 
         addNewClockCard(newCardData);
+        alert(`${city} added!`);
         setCity('');
         console.log(`https://worldtimeapi.org/api/timezone/${timezone}`);
 
       } else {
-        setCity('');
         setSearchError(true);
+        setCity('');
       }
     } catch (error) {
       console.error('Error fetching city data:', error);
@@ -273,8 +274,10 @@ function Searchbar({ addNewClockCard }) {
 
   function handleChange(event) {
     const inputValue = event.target.value;
-    const capitalizedCity = inputValue.replace(/(^|\s)\S/g, (match) => match.toUpperCase()); // regardless, city is always written like this 'Berlin'
-    setCity(capitalizedCity);
+    // const capitalizedCity = inputValue.replace(/(^|\s)\S/g, (match) => match.toUpperCase()); // regardless, city is always written like this 'Berlin'
+    // setCity(capitalizedCity);
+    const camelCaseCity = inputValue.replace(/(^|\s+)(\w)/g, (match, space, letter) => letter.toUpperCase());
+    setCity(camelCaseCity);
 
   }
 
@@ -291,7 +294,11 @@ function Searchbar({ addNewClockCard }) {
 
     // Get the formatted time based on the timezone without AM/PM
     const timeOptions = { hour: '2-digit', minute: '2-digit', timeZone: timezone, hour12: false };
-    const formattedTime = new Intl.DateTimeFormat('en-US', timeOptions).format(localTime);
+    let formattedTime = new Intl.DateTimeFormat('en-US', timeOptions).format(localTime);
+
+    if (formattedTime.slice(0, 2) === '24') {
+      formattedTime = '00' + formattedTime.slice(2);
+    }
 
     return formattedTime;
   };

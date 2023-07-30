@@ -40,12 +40,12 @@ function Cards() {
     const fetchDefaultCitiesData = async () => {
       const defaultCities = ['America/Los_Angeles', 'Australia/Sydney', 'Asia/Tokyo'];
 
-      const cityDataPromises = defaultCities.map(async (city) => {
-        const data = await fetchCityData(city);
+      const cityDataPromises = defaultCities.map(async (timezone) => {
+        const data = await fetchCityData(timezone);
         if (data) {
           return {
-            city: city.split('/').pop().replace('_', ' '),
-            time: formatTime(data.datetime, data.utc_offset, city),
+            city: timezone.split('/').pop().replace('_', ' '),
+            time: formatTime(data.datetime, data.utc_offset, timezone),
             timeDifference: data.utc_offset,
           };
         }

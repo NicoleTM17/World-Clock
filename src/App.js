@@ -1,3 +1,4 @@
+import { useState } from 'react';
 
 // CSS:
 import './App.css';
@@ -28,13 +29,19 @@ WebFont.load({
 
 function App() {
 
+  const [clockCards, setClockCards] = useState([]);
+
+  const addClockCard = (newCard) => {
+    setClockCards((prevCards) => [...prevCards, newCard]);
+  };
+
   return (
     <div className='container'>
       <h1 className='title'>World clock</h1>
-      <Searchbar/>
+      <Searchbar addClockCard={addClockCard}/>
       <Map/>
       <CurrentData/>
-      <Cards/>
+      <Cards clockCards={clockCards}/>
       <footer>© Copyright 2023 Nicole Moncrieffe</footer>
     </div>
   );

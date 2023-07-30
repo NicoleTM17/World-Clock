@@ -8,22 +8,32 @@ function Searchbar({ addClockCard }) {
   const [city, setCity] = useState('');
   const [searchError, setSearchError] = useState(false);
 
+    // Mapping of city names to timezone strings
+    const cityToTimezoneMap = {
+      Berlin: 'Europe/Berlin',
+      // Add more mappings here as needed
+    };
+
+
   async function handleClick(event) {
     event.preventDefault();
     setSearchError(false);
 
     try {
-      const response = await fetch(`https://worldtimeapi.org/api/timezone/${city}`);
-      const data = await response.json();
+      // Check if the city name is present in the mapping
+      const timezone = cityToTimezoneMap[city];
+      if (timezone) {
+        const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);
+        const data = await response.json();
 
-      if (data.timezone) {
         const newClockCard = {
-          city: data.timezone.split('/').pop().replace('_', ' '),
+          city: city,
           time: formatTime(data.datetime, data.utc_offset, data.timezone),
           timeDifference: data.utc_offset,
         };
         addClockCard(newClockCard);
         setCity('');
+        console.log('successful get request');
       } else {
         setCity('');
         setSearchError(true);

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import '../styles/Cards.css';
 
 
-function Cards() {
+function Cards( {clockCards: initialClockCards}) {
   const fetchCityData = async (timezone) => {
     try {
       const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);
@@ -34,7 +34,7 @@ function Cards() {
     return formattedTime;
   };
 
-  const [clockCards, setClockCards] = useState([]);
+  const [defaultClockCards, setDefaultClockCards] = useState([]);
 
   useEffect(() => {
     const fetchDefaultCitiesData = async () => {
@@ -53,7 +53,7 @@ function Cards() {
       });
 
       const cityData = await Promise.all(cityDataPromises);
-      setClockCards(cityData.filter((data) => data !== null));
+      setDefaultClockCards(cityData.filter((data) => data !== null));
     };
 
     fetchDefaultCitiesData();
@@ -66,20 +66,43 @@ function Cards() {
     };
   }, []);
 
+  // NEW CLOCK CARDS WHEN CITY SEARCHED
+  // currently set interval has not been applied
+
+  const [newClockCards, setNewClockCards] = useState(initialClockCards);
+
+  useEffect(() => {
+    setNewClockCards(initialClockCards);
+  }, [initialClockCards]);
+
+
+
   return (
     <div className='cards-wrapper'>
-      {clockCards.map((card, index) => (
-        <div className='clock-card' key={index}>
-          <span className='col-wrap'>
-            <div className='location'>{card.city}</div>
-            <div className='time-diff'>
-              {card.timeDifference} {card.timeDifference.includes('-') ? 'behind' : 'ahead'}
-            </div>
-          </span>
-          <div className='time'>{card.time}</div>
-        </div>
-      ))}
-    </div>
+    {defaultClockCards.map((card, index) => (
+      <div className='clock-card' key={index}>
+        <span className='col-wrap'>
+          <div className='location'>{card.city}</div>
+          <div className='time-diff'>
+            {card.timeDifference} UTC {card.timeDifference.includes('-') ? 'behind' : 'ahead'}
+          </div>
+        </span>
+        <div className='time'>{card.time}</div>
+      </div>
+    ))}
+
+    {newClockCards.map((card, index) => (
+      <div className='clock-card' key={index}>
+        <span className='col-wrap'>
+          <div className='location'>{card.city}</div>
+          <div className='time-diff'>
+            {card.timeDifference} UTC {card.timeDifference.includes('-') ? 'behind' : 'ahead'}
+          </div>
+        </span>
+        <div className='time'>{card.time}</div>
+      </div>
+    ))}
+  </div>
   );
 }
 

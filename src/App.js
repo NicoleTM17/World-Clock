@@ -31,14 +31,14 @@ function App() {
 
   const [clockCards, setClockCards] = useState([]);
 
-  const addClockCard = (newCard) => {
-    setClockCards((prevCards) => [...prevCards, newCard]);
+  const addNewClockCard = (cardData) => {
+    setClockCards([...clockCards, cardData]);
   };
 
   return (
     <div className='container'>
       <h1 className='title'>World clock</h1>
-      <Searchbar addClockCard={addClockCard}/>
+      <Searchbar addNewClockCard={addNewClockCard}/>
       <Map/>
       <CurrentData/>
       <Cards clockCards={clockCards}/>

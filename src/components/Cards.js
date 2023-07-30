@@ -76,17 +76,39 @@ function Cards( {clockCards: initialClockCards}) {
   }, [initialClockCards]);
 
 
+  // Delete event for both default and new cards
+
+  function handleClickDefault(index) {
+    setDefaultClockCards(prevCards => {
+      // Create a copy of the previous array to avoid direct modification of state
+      const updatedCards = [...prevCards];
+      // Remove the clock-card at the specified index
+      updatedCards.splice(index, 1);
+      return updatedCards;
+    });
+  };
+
+  function handleClickNew(index) {
+    setNewClockCards(prevCards => {
+      const updatedNewCards = [...prevCards];
+      updatedNewCards.splice(index, 1);
+      return updatedNewCards;
+    });
+  };
 
   return (
     <div className='cards-wrapper'>
+
     {defaultClockCards.map((card, index) => (
       <div className='clock-card' key={index}>
+
         <span className='col-wrap'>
           <div className='location'>{card.city}</div>
           <div className='time-diff'>
             {card.timeDifference} UTC {card.timeDifference.includes('-') ? 'behind' : 'ahead'}
           </div>
         </span>
+        <div onClick={() => handleClickDefault(index)} className='delete'>X</div>
         <div className='time'>{card.time}</div>
       </div>
     ))}
@@ -99,6 +121,7 @@ function Cards( {clockCards: initialClockCards}) {
             {card.timeDifference} UTC {card.timeDifference.includes('-') ? 'behind' : 'ahead'}
           </div>
         </span>
+        <div onClick={() => handleClickNew(index)} className='delete'>X</div>
         <div className='time'>{card.time}</div>
       </div>
     ))}

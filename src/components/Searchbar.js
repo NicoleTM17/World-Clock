@@ -275,7 +275,7 @@ function Searchbar({ addNewClockCard }) {
     const inputValue = event.target.value;
     const capitalizedCity = inputValue.replace(/(^|\s)\S/g, (match) => match.toUpperCase()); // regardless, city is always written like this 'Berlin'
     setCity(capitalizedCity);
-    console.log(capitalizedCity);
+
   }
 
   const formatTime = (datetime, utc_offset, timezone) => {

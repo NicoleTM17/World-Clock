@@ -5,6 +5,12 @@ body{
   /* background-size: contain; */
 }
 
+#root {
+  transform: scale(0.7);
+  /* transform-origin: 0 0; */
+}
+
+
 .container{
   display: block;
   margin: 0 auto;
@@ -14,7 +20,7 @@ body{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1em;
   background-color: rgba(0, 0, 0, 0.837);
-  margin-top: 2em;
+  margin-top: -6em;
   margin-bottom: 2em;
   overflow: hidden;
 }

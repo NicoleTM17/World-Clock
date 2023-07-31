@@ -70,12 +70,15 @@
   }
 
   .search-bar{
-    left: 7em;
+    left: 9em;
+    top: 6em;
 
   }
 
   .results{
     font-size: 12px;
+    top: 11em;
+    left: 15em;
   }
 
   .submit-btn{

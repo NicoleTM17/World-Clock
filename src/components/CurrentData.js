@@ -55,7 +55,7 @@ function CurrentData() {
   useEffect(() => {
     const interval = setInterval(() => {
 
-      fetch('http://worldtimeapi.org/api/ip')
+      fetch('https://worldtimeapi.org/api/ip')
       .then(response => response.json())
       .then(data => {
         const { timezone, datetime } = data;

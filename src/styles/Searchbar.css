@@ -46,7 +46,20 @@
   opacity: 0.8;
 }
 
+.added{
+  color: white;
+  position: absolute;
+  top: 9.2em;
+  left: 13em;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
 .results-hidden{
+  display: none;
+}
+
+.added-hidden{
   display: none;
 }
 

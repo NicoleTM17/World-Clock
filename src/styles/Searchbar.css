@@ -52,13 +52,20 @@
 
 @media (max-width: 540px) {
 
+  .search{
+    width: 35%;
+  }
+
   .search-bar{
-    left: 5em;
+    left: 7em;
+
   }
 
   .results{
     font-size: 12px;
-    top: 5.5em;
-    left: 14em;
+  }
+
+  .submit-btn{
+    margin-left: 0.25em;
   }
 }
